@@ -31,15 +31,15 @@ Outputs are saved in both CSV and JSON formats:
 
 ## Usage
 
-1. Place your LaTeX files in the directory sources, following the structure of the example below:
+1. Place your LaTeX files inside a folder called "sources" in the root directory , following the structure of the example below:
 
 ```bash
 $ cd sources
 $ ls
-2301.12169v1 2302.08664v3 2303.10131v1 2303.13729v2 2304.05766v1 2305.16365v1 2306.10019v1 2307.04291v1 2308.09637v2 2308.12079v1 2309.04197v1 2302.05564v1 2303.09727v1 2303.10439v2 2303.15684v1 2304.14628v2 2305.16591v1 2306.10021v1 2307.10793v1 2308.09940v1 2309.03914v1
-$ cd 2304.05766v1
+2301.12169v1 2302.08664v3 2303.10131v1 2303.13729v2 2304.05766v1 2305.16365v1 2306.10019v1 2307.04291v1 2308.09637v2 2308.12079v1 2309.04197v1 2302.05564v1 2303.09727v1 2303.10439v2 2303.15684v1 2304.14628v2 
+$ cd 2302.08664v3
 $ ls
-main.tex
+merged.tex
 ```
 
 2. Run the command ```python search_chatgpt.py``` to start teh execution
