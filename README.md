@@ -26,12 +26,12 @@ Outputs are saved in both CSV and JSON formats:
 }
 ```
 
-- mentions.csv, with every different mention and the times it is present in the papers
+- mentions.csv, with every different mention and the number of times times it is present in the papers
 
 
 ## Usage
 
-1. Place your LaTeX files inside a folder called "sources" in the root directory , following the structure of the example below:
+1. Place your LaTeX files inside a folder called "sources" in the root directory ,following the structure of the example below:
 
 ```bash
 $ cd sources
@@ -42,4 +42,4 @@ $ ls
 merged.tex
 ```
 
-2. Run the command ```python search_chatgpt.py``` to start teh execution
+2. Run the command ```python search_chatgpt.py``` to start the execution
