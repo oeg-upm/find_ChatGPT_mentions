@@ -22,6 +22,12 @@ def is_within_comment(content, index):
             return True
     return False
 
+def extract_paragraph(content, start_index, end_index):
+    # Find the paragraph containing the mention
+    paragraph_start = content.rfind("\n", 0, start_index) + 1
+    paragraph_end = content.find("\n", end_index)
+    return content[paragraph_start:paragraph_end].strip()
+
 def search_for_variants(base_dir, output_csv, output_json):
     # Define regular expression to search for
     CHATGPT_REGEX = re.compile(r'chat[ \-_]{0,1}gpt', re.IGNORECASE)
@@ -45,8 +51,9 @@ def search_for_variants(base_dir, output_csv, output_json):
                             is_comment = is_within_comment(content, match.start())
                             if mention not in mentions:
                                 mentions[mention] = []
-                            # Find the section containing the mention
-                            mentions[mention].append({"file": file_path, "section": extract_section(content, match.start(), match.end()), "comment": is_comment})
+                            section = extract_section(content, match.start(), match.end())
+                            paragraph = extract_paragraph(content, match.start(), match.end())
+                            mentions[mention].append({"file": file_path, "section": section, "comment": is_comment, "context": paragraph})
 
     # Write results to CSV file
     with open(output_csv, 'w', newline='') as csv_file:
@@ -57,7 +64,7 @@ def search_for_variants(base_dir, output_csv, output_json):
 
     print(f"CSV file '{output_csv}' created successfully.")
 
-    # Write appearances with sections and comment status to JSON file
+    # Write appearances with sections, comment status, and context to JSON file
     with open(output_json, 'w', encoding='utf-8') as json_file:
         json.dump(mentions, json_file, ensure_ascii=False, indent=4)
 

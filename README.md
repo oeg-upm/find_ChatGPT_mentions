@@ -9,6 +9,8 @@ This project provides a Python script to detect mentions of ChatGPT and Copilot 
 
 - Extracts the sections in which mentions occur within LaTeX files.
 
+- Extracts the pharagraphs where mentions are found.
+
 - Determines whether mentions are within LaTeX comments.
 
 Outputs are saved in both CSV and JSON formats: 
@@ -22,7 +24,9 @@ Outputs are saved in both CSV and JSON formats:
             "file": "path to the file when the mention is present",
             "section": "section of the file where the mention occurs",
             "comment": a boolean flag that indicates if the mention is within a comment
+            "context": "pharagraph where the mention is found"
         },
+    ],
 }
 ```
 
